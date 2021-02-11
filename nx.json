@@ -1,9 +1,14 @@
 {
   "npmScope": "super-hero-comparator",
-  "affected": { "defaultBase": "master" },
+  "affected": {
+    "defaultBase": "master"
+  },
   "implicitDependencies": {
     "angular.json": "*",
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
@@ -11,14 +16,35 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "accessToken": "NzVjMzU2NzMtMjE1NS00NDdhLWFlZGUtNTAzZGRlYjZiNWY2fHJlYWQtd3JpdGU=",
+        "cacheableOperations": [
+          "build",
+          "test",
+          "lint",
+          "e2e"
+        ],
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
     }
   },
   "projects": {
-    "client-app": { "tags": [] },
-    "client-app-e2e": { "tags": [], "implicitDependencies": ["client-app"] },
-    "api": { "tags": [] },
-    "api-interfaces": { "tags": [] }
+    "client-app": {
+      "tags": []
+    },
+    "client-app-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "client-app"
+      ]
+    },
+    "api": {
+      "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    }
   }
 }

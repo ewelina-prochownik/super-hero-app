@@ -1,0 +1,69 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Stats {
+  intelligence: Int!
+  strength: Int!
+  speed: Int!
+  hp: Int!
+}
+
+type Hero {
+  _id: String
+  name: String!
+  image: String!
+  favourite: Boolean!
+  notes: String
+  stats: Stats!
+  fights: [Duel!]
+}
+
+type Duel {
+  isWin: Boolean!
+  enemyId: String!
+  date: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  getAll(limit: Float!, skip: Float!): [Hero!]!
+  hero(id: String!): Hero!
+  getRandomHero: Hero!
+  getFavourites(limit: Float!, skip: Float!): [Hero!]!
+}
+
+type Mutation {
+  addHero(hero: HeroInput!): Hero
+  updateHero(hero: HeroInput!, id: String!): Hero!
+  removeHero(id: String!): Hero!
+  makeFavourite(favourite: Boolean!, id: String!): Hero!
+  fight(enemyId: String!, heroId: String!): String!
+}
+
+input HeroInput {
+  id: String
+  name: String!
+  image: String!
+  favourite: Boolean!
+  notes: String
+  stats: StatsInput!
+  fights: [DuelInput!]
+}
+
+input StatsInput {
+  intelligence: Int!
+  strength: Int!
+  speed: Int!
+  hp: Int!
+}
+
+input DuelInput {
+  isWin: Boolean!
+  enemyId: String!
+  date: DateTime!
+}
